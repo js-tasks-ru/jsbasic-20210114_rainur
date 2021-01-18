@@ -4,7 +4,7 @@
  * @returns {string}
  */
 function ucFirst(str) {
-  result="";
+  let result="";
   for(i=0;i<str.length;i++)
   {
     if(i==0)

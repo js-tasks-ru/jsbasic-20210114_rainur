@@ -5,5 +5,20 @@
  * @returns {string}
  */
 function truncate(str, maxlength) {
-  // ваш код...
+  let result="";
+  let str_length=str.length;
+  if(str_length<=maxlength)
+  {
+    result=str;
+  }
+  else
+  {
+    for(i=0;i<=maxlength-2;i++)
+    {
+      result+=str[i]
+    }
+    result+="…"
+  }
+  return result;
+
 }
