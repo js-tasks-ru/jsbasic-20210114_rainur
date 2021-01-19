@@ -4,8 +4,8 @@
  * @returns {boolean}
  */
 function checkSpam(str) {
-  let str_lower=str.toLowerCase()
-  if(str_lower.indexOf("1xbet")!=-1 || str_lower.indexOf("xxx")!=-1)
+  let strLower=str.toLowerCase()
+  if(strLower.indexOf("1xbet")!=-1 || strLower.indexOf("xxx")!=-1)
   {
     return true;
   }

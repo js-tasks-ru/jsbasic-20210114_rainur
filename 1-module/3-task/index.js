@@ -5,7 +5,7 @@
  */
 function ucFirst(str) {
   let result="";
-  for(i=0;i<str.length;i++)
+  for(let i=0;i<str.length;i++)
   {
     if(i==0)
       result+=str[i].toUpperCase()
