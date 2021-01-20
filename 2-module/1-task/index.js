@@ -4,5 +4,11 @@
  * @returns {Number}
  */
 function sumSalary(salaries) {
-  // ваш код...
+  let result=0;
+  for(let key in salaries)
+  {
+    let val=parseInt(salaries[key])
+    result+=(!isNaN(val) ? val : 0)
+  }
+  return result
 }
