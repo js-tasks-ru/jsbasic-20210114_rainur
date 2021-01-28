@@ -18,7 +18,7 @@ function getMinMax(str) {
   }
   //без этого почему то не правильно шла сортировка
   needArray=needArray.sort(function(a,b) { return a - b;})
-  console.log(needArray)
+  
   let result={
     min:needArray[0],
     max:needArray[needArray.length-1],
