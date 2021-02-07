@@ -4,10 +4,10 @@
  * @return {HTMLUListElement}
  */
 function makeFriendsList(friends) {
-  let li=friends.map(function(item){
-    return "<li>"+item.lastName+" "+item.firstName+"</li>"
+  let lis=friends.map(function(item){
+    return `<li>${item.lastName} ${item.firstName}</li>`
   }).join("")
   let ul= document.createElement("ul");
-  ul.innerHTML=li;
+  ul.innerHTML=lis;
   return ul;
 }
