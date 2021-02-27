@@ -16,7 +16,7 @@ export default class RibbonMenu {
     }
 
     elemDiv.innerHTML=`<!--Кнопка прокрутки влево-->
-    <button class="ribbon__arrow ribbon__arrow_left ribbon__arrow_visible">
+    <button class="ribbon__arrow ribbon__arrow_left">
       <img src="/assets/images/icons/angle-icon.svg" alt="icon">
     </button>
 
@@ -26,7 +26,7 @@ export default class RibbonMenu {
     </nav>
 
     <!--Кнопка прокрутки вправо-->
-    <button class="ribbon__arrow ribbon__arrow_right">
+    <button class="ribbon__arrow ribbon__arrow_right ribbon__arrow_visible">
       <img src="/assets/images/icons/angle-icon.svg" alt="icon">
     </button>`
     
@@ -39,26 +39,13 @@ export default class RibbonMenu {
     //выбор конкретной категории
     this.item_active();
   }
+  
   scrolling(){
     // Найдем ribbonInner
     let ribbonInner=this.elem.querySelector(".ribbon__inner")
 
     //найдем ribbon__arrow_right и навесим действие на click 
 
-    //мне кажестя ошибка в тесте
-    //вот так я тест прошел, но реально работает вот так
-    /*
-    let ribbonArrowRight=this.elem.querySelector(".ribbon__arrow_right")
-    ribbonArrowRight.addEventListener('click',function(){
-      ribbonInner.scrollBy(-350, 0)
-    })
-
-    //найдем ribbon__arrow_left и навесим действие на click 
-    let ribbonArrowLeft=this.elem.querySelector(".ribbon__arrow_left")
-    ribbonArrowLeft.addEventListener('click',function(){
-      ribbonInner.scrollBy(350, 0)
-    })
-    */
     let ribbonArrowRight=this.elem.querySelector(".ribbon__arrow_right")
     ribbonArrowRight.addEventListener('click',function(){
       ribbonInner.scrollBy(350, 0)
@@ -78,15 +65,14 @@ export default class RibbonMenu {
       let clientWidth = ribbonInner.clientWidth;
       let scrollRight = scrollWidth - scrollLeft - clientWidth;
 
-      
-      if( scrollLeft<1)
+      if( scrollRight<1)
       {
         ribbonArrowLeft.classList.add("ribbon__arrow_visible");
         ribbonArrowRight.classList.remove("ribbon__arrow_visible");
         
       }
        
-      if( scrollRight<1)
+      if( scrollLeft<1)
       {
         ribbonArrowLeft.classList.remove("ribbon__arrow_visible");
         ribbonArrowRight.classList.add("ribbon__arrow_visible");
@@ -95,7 +81,6 @@ export default class RibbonMenu {
 
     })
   }
-      
   item_active(){
     // Найдем ribbonInner
     let ribbonInner=this.elem.querySelector(".ribbon__inner")
@@ -125,5 +110,5 @@ export default class RibbonMenu {
       
 
     })
-  }
+  } 
 }

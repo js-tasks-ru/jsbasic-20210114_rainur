@@ -137,7 +137,14 @@ export default class Cart {
           let productId= event.target.closest(".cart-product").dataset.productId;
           this.updateProductCount(productId,amount)
         }
+        else if(event.target.closest(".cart-buttons__button")){
+          event.preventDefault();
+          this.onSubmit(event)
+        }
      })
+
+    
+    
 
   }
 
@@ -176,8 +183,28 @@ export default class Cart {
   }
 
   onSubmit(event) {
-    // ...ваш код
-    //пока не готово
+    let formElem=this.modal.elem.querySelector(".cart-form")
+    
+    event.target.classList.add("is-loading")
+    let response = fetch('https://httpbin.org/post', {
+      method: 'POST',
+      body: new FormData(formElem)
+    });
+    response.then(response => {
+      if(response.ok){
+        this.modal.setTitle('Success!');
+        this.cartItems.splice(0, this.cartItems.length);
+        this.modal.setBody(createElement(`<div class="modal__body-inner">
+        <p>
+          Order successful! Your order is being cooked :) <br>
+          We’ll notify you about delivery time shortly.<br>
+          <img src="/assets/images/delivery.gif">
+        </p>
+      </div>`))
+
+      }
+    })
+    
   };
 
   addEventListeners() {
