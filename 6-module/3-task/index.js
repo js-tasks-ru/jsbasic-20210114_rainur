@@ -45,10 +45,7 @@ export default class Carousel {
 
     let carouselInner=elemDiv.querySelector('.carousel__inner')
 
-    //Ширина div
-    //почему то это не сработало, сделал, чтобы тест пройти
-    //Разберусь позже
-    let carouselInnerOffsetWidth=500//carouselInner.offsetWidth
+
     
     //вычислим максимальное количество сдвигов
     let maxCountShift=carouselInner.querySelectorAll('.carousel__slide').length;
@@ -66,7 +63,9 @@ export default class Carousel {
 
       if(event.target.closest('.carousel__arrow'))
       {
-        
+        //Ширина div
+        let carouselInnerOffsetWidth=carouselInner.offsetWidth
+
         //выясним на какой кнопке вызвано действие
         let typeShift=( event.target.closest('.carousel__arrow_right')!=null ? 1 : -1);
         

@@ -40,8 +40,10 @@ export default class CartIcon {
   }
 
   updatePosition() {
-    if(this.initialTopCoord==0)
+    if(this.initialTopCoord==0){
       this.initialTopCoord = this.elem.getBoundingClientRect().top + window.pageYOffset;
+    }
+      
 
     if (window.pageYOffset > this.initialTopCoord) {
       let leftIndent = Math.min(

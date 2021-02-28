@@ -37,7 +37,7 @@ export default class RibbonMenu {
     this.scrolling();
 
     //выбор конкретной категории
-    this.item_active();
+    this.itemActive();
   }
   
   scrolling(){
@@ -81,7 +81,7 @@ export default class RibbonMenu {
 
     })
   }
-  item_active(){
+  itemActive(){
     // Найдем ribbonInner
     let ribbonInner=this.elem.querySelector(".ribbon__inner")
     let ribbonItems=ribbonInner.querySelectorAll(".ribbon__item")
